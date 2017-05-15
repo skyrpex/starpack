@@ -1,0 +1,22 @@
+{
+  "presets": ["env", "stage-2"],
+  "plugins": [
+    "transform-runtime",
+    "transform-object-rest-spread"
+  ],
+  "env": {
+    "build": {
+      "presets": [
+        ["env", { "modules": false }],
+        "stage-2"
+      ],
+      "plugins": [
+        "lodash"
+      ],
+      "comments": false
+    },
+    "test": {
+      "plugins": ["istanbul"]
+    }
+  }
+}
