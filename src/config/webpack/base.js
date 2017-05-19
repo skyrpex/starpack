@@ -5,8 +5,9 @@ import { resolve } from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import ManifestPlugin from '@skyrpex/manifest-webpack-plugin'
 import scssLoaders from './scss-loaders'
+import starpack from '../../user-config'
 
-export default ({ starpack, babelEnv, extractStyles }) => {
+export default ({ babelEnv, extractStyles }) => {
   const extractor = new ExtractTextPlugin({
     filename: '[name].[contenthash].css',
     disable: extractStyles == null,
@@ -93,11 +94,11 @@ export default ({ starpack, babelEnv, extractStyles }) => {
         resolve(__dirname, '../../../node_modules'),
       ],
       alias: {
-        '~': starpack.base,
+        '~': starpack.context,
       },
     },
     plugins: [
-      new ManifestPlugin(`${starpack.output}/manifest.json`),
+      new ManifestPlugin(`${starpack.output.path}/manifest.json`),
       extractor,
     ],
   }

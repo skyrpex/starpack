@@ -1,4 +1,7 @@
-export default ({ starpack }) => [
+import { resolve } from 'path'
+import config from '../../user-config'
+
+export default () => [
   {
     loader: 'css-loader',
     options: {
@@ -11,8 +14,9 @@ export default ({ starpack }) => [
     options: {
       sourceMap: true,
       includePaths: [
-        starpack.base,
-        starpack.nodeModules,
+        config.context,
+        `${process.cwd()}/node_modules`,
+        resolve(__dirname, '../../../node_modules'),
       ],
     },
   },

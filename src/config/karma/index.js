@@ -1,8 +1,8 @@
+import starpack from '../../user-config'
 import makeWebpackConfig from '../webpack/base'
 
-export default ({ starpack }) => {
+export default () => {
   const webpack = makeWebpackConfig({
-    starpack,
     babelEnv: 'test',
   })
   webpack.entry = null

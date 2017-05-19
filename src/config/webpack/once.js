@@ -3,11 +3,11 @@ import merge from 'webpack-merge'
 import { optimize } from 'webpack'
 import ProgressBarPlugin from 'progress-bar-webpack-plugin'
 // import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
+import starpack from '../../user-config'
 import base from './base'
 
-export default ({ starpack, babelEnv }) => merge(
+export default ({ babelEnv }) => merge(
   base({
-    starpack,
     babelEnv,
     extractStyles: true,
   }),
@@ -16,7 +16,7 @@ export default ({ starpack, babelEnv }) => merge(
     output: {
       filename: '[name].[chunkhash].js',
       chunkFilename: '[id].[chunkhash].js',
-      path: starpack.output,
+      path: starpack.output.path,
     },
     plugins: [
       new ProgressBarPlugin(),
