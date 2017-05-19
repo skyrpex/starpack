@@ -6,7 +6,6 @@ import hotMiddlewre from 'webpack-hot-middleware'
 import history from 'connect-history-api-fallback'
 import makeConfig from '../config/webpack/hot'
 import clean from '../clean'
-import starpack from '../user-config'
 
 // Disable deprecation comment for babel (https://github.com/webpack/loader-utils/issues/56#issuecomment-281967053)
 process.noDeprecation = true
@@ -19,7 +18,6 @@ program.command(
   '-p, --port <port>', 'the port to serve the application on', 8080,
 ).action((command) => {
   const compiler = webpack(makeConfig({
-    starpack,
     babelEnv: 'build',
     port: command.port,
   }))

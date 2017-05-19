@@ -35,7 +35,7 @@ export default ({ babelEnv, extractStyles }) => {
                 fallback: 'vue-style-loader',
               }),
               scss: extractor.extract({
-                use: scssLoaders({ starpack }),
+                use: scssLoaders(),
                 fallback: 'vue-style-loader',
               }),
             },
@@ -55,7 +55,7 @@ export default ({ babelEnv, extractStyles }) => {
         {
           test: /\.scss$/,
           loader: extractor.extract({
-            use: scssLoaders({ starpack }),
+            use: scssLoaders(),
             fallback: 'style-loader',
           }),
         },

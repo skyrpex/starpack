@@ -2,7 +2,6 @@ import webpack from 'webpack'
 import program from 'commander'
 import makeConfig from '../config/webpack/once'
 import clean from '../clean'
-import starpack from '../user-config'
 
 program.command(
   'build',
@@ -10,7 +9,6 @@ program.command(
   'build for production',
 ).action(() => {
   const compiler = webpack(makeConfig({
-    starpack,
     babelEnv: 'build',
   }))
 
