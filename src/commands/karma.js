@@ -1,15 +1,13 @@
 import { Server } from 'karma'
 import program from 'commander'
 import makeConfig from '../config/karma'
+import starpack from '../user-config'
 
 program.command(
   'karma',
 ).description(
   'start the testing server',
 ).action(() => {
-  // eslint-disable-next-line import/no-dynamic-require
-  const starpack = require(`${process.cwd()}/starpack.config`).default
-
   const config = makeConfig({ starpack })
 
   const server = new Server(config, (exitCode) => {

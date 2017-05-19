@@ -1,6 +1,7 @@
 import {
   DefinePlugin,
 } from 'webpack'
+import { resolve } from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import ManifestPlugin from '@skyrpex/manifest-webpack-plugin'
 import scssLoaders from './scss-loaders'
@@ -79,8 +80,18 @@ export default ({ starpack, babelEnv, extractStyles }) => {
         },
       ],
     },
+    resolveLoader: {
+      modules: [
+        `${process.cwd()}/node_modules`,
+        resolve(__dirname, '../../../node_modules'),
+      ],
+    },
     resolve: {
       extensions: ['.vue', '.js'],
+      modules: [
+        `${process.cwd()}/node_modules`,
+        resolve(__dirname, '../../../node_modules'),
+      ],
       alias: {
         '~': starpack.base,
       },

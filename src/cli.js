@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+import 'babel-register'
 import program from 'commander'
 import './commands/clean'
 import './commands/hot'
 import './commands/once'
 import './commands/karma'
-import 'babel-register'
 
 program.version('0.0.1')
 

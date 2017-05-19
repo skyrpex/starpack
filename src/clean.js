@@ -1,8 +1,6 @@
 import del from 'del'
+import starpackConfig from './user-config'
 
 export default () => {
-  // eslint-disable-next-line import/no-dynamic-require, global-require
-  const starpack = require(`${process.cwd()}/starpack.config`).default
-
-  del.sync([`${starpack.output}/**/*`])
+  del.sync([`${starpackConfig.output}/**/*`])
 }
